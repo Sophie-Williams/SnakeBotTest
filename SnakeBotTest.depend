@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1521990969 source:c:\users\gimadutdin\desktop\snakebottest\snakebottest\bot.cpp
+
+1521751571 c:\users\gimadutdin\desktop\snakebottest\snakebottest\bot.h
+
+1522256266 source:c:\users\gimadutdin\desktop\snakebottest\snakebottest\library.cpp
+	"library.h"
+
+1522256643 c:\users\gimadutdin\desktop\snakebottest\snakebottest\library.h
+	<bits/stdc++.h>
+	<stdio.h>
+	<conio.h>
+	<windows.h>
+	<stdlib.h>
+	<time.h>
+
+1522258113 source:c:\users\gimadutdin\desktop\snakebottest\snakebottest\main.cpp
+	"library.h"
+
