@@ -73,7 +73,7 @@ void moveSnakeBot(Snake *bot, Snake *s)//s1 - bot
 	int by = bot->nodes[0].y;
 	int bx = bot->nodes[0].x;
 	s->draw(1, mp->curMap);
-	int st = buildShortestPath(by, bx, s->getTailY(), s->getTailX(), mapPath);
+	int st = buildShortestPath(by, bx, s->nodes[0].y, s->nodes[0].x,/*s->getTailY(), s->getTailX(),*/ mapPath);
 	dumpToFile(mapPath, "dmp.txt");
 	bot->draw(0, mp->curMap);
 	if (by - 1 >= 0 && mapPath[by - 1][bx] == '+')
@@ -99,8 +99,8 @@ int main()
 {
     initConsole();
     mp = new Map(cEmpty);
-    Snake *s1 = new Snake(5, 3, cUser);
-    Snake *s2 = new Snake(7, 2, cBot);
+    Snake *s1 = new Snake(5, 2, cUser);
+    Snake *s2 = new Snake(7, 3, cBot);
 
     s1->draw(1, mp->curMap);
     s2->draw(1, mp->curMap);  //mp->dumpToFile("dmp1.txt");
