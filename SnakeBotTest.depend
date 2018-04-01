@@ -3,10 +3,10 @@
 
 1521751571 c:\users\gimadutdin\desktop\snakebottest\snakebottest\bot.h
 
-1522256266 source:c:\users\gimadutdin\desktop\snakebottest\snakebottest\library.cpp
+1522595459 source:c:\users\gimadutdin\desktop\snakebottest\snakebottest\library.cpp
 	"library.h"
 
-1522256643 c:\users\gimadutdin\desktop\snakebottest\snakebottest\library.h
+1522588183 c:\users\gimadutdin\desktop\snakebottest\snakebottest\library.h
 	<bits/stdc++.h>
 	<stdio.h>
 	<conio.h>
@@ -14,6 +14,6 @@
 	<stdlib.h>
 	<time.h>
 
-1522480698 source:c:\users\gimadutdin\desktop\snakebottest\snakebottest\main.cpp
+1522597654 source:c:\users\gimadutdin\desktop\snakebottest\snakebottest\main.cpp
 	"library.h"
 

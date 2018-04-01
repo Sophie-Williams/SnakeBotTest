@@ -18,7 +18,12 @@ using namespace std;
 #define cEmpty '-'
 #define cNoChar '$'
 #define cUser '#'
+#define cUserHead ':'
+#define cUserTail '.'
 #define cBot 'O'
+#define cBotHead 'o'
+#define cBotTail '*'
+#define cPath '+'
 #define maxNodes 15
 #define UP 1
 #define DOWN 2
@@ -58,6 +63,8 @@ class Snake
     void draw(int col, char (&m)[mapH][mapW]);
     int getTailX();
     int getTailY();
+    void incLen();
+    void decLen();
 };
 
 extern HANDLE h;

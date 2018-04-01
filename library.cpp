@@ -41,13 +41,19 @@ Map::Map(char t)
 
 void Map::draw()
 {
-        for (int y = 0; y < mapH; y++)
-            for (int x = 0; x < mapW; x++)
-                if (prevMap[y][x] != curMap[y][x])
-                {
-                    prevMap[y][x] = curMap[y][x];
-                    setChar(curMap[y][x], y + mapY, x + mapX);
-                }
+    char t;
+    for (int y = 0; y < mapH; y++)
+        for (int x = 0; x < mapW; x++)
+            if (prevMap[y][x] != curMap[y][x])
+            {
+                prevMap[y][x] = curMap[y][x];
+                t = curMap[y][x];
+                if (t == cUserHead || t == cUserTail)
+                    t = cUser;
+                if (t == cBotHead || t == cBotTail)
+                    t = cBot;
+                setChar(t, y + mapY, x + mapX);
+            }
 }
 
 void dumpToFile(char (&m)[mapH][mapW], char fileName[])
@@ -133,7 +139,35 @@ void Snake::draw(int col, char (&m)[mapH][mapW])
     {
         int tx = nodes[i].x;
         int ty = nodes[i].y;
-        m[ty][tx] = (col ? who : cEmpty);
+        if (col == 0)
+        {
+            m[ty][tx] = cEmpty;
+        } else
+        {
+            if (i == 0)
+            {
+                m[ty][tx] = (who == cUser) ? cUserHead : cBotHead;
+            } else if (i == len - 1)
+            {
+                //if (nodes[len - 1].x != -1)
+                //{
+                    if(tx != -1 && ty != -1)
+                        m[ty][tx] = (who == cUser) ? cUserTail : cBotTail;
+                //}
+            } /*if (i == max(0, len - 2))
+            {
+                if (nodes[len - 1].x == -1)
+                {
+                    m[ty][tx] = (who == cUser) ? cUserTail : cBotTail;
+                } else
+                {
+                    m[ty][tx] = who;
+                }
+            } */else
+            {
+                m[ty][tx] = who;
+            }
+        }
     }
 }
 
@@ -145,4 +179,16 @@ int Snake::getTailX()
 int Snake::getTailY()
 {
     return nodes[len - 1].y;
+}
+
+void Snake::incLen()
+{
+    len++;//cout << "))))";
+    nodes[len - 1].y = -1;
+    nodes[len - 1].x = -1;
+}
+
+void Snake::decLen()
+{
+    len--;
 }
