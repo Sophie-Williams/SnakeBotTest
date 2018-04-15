@@ -85,7 +85,15 @@ void moveSnakeBot(Snake *bot, Snake *s)
 	int by = bot->nodes[0].y;
 	int bx = bot->nodes[0].x;
 	s->draw(1, mp->curMap);
-	int st = buildShortestPath(by, bx, /*s->nodes[0].y, s->nodes[0].x, */s->getTailY(), s->getTailX(), mapPath);
+	int st;
+	int R = 2;//really R+1 cells
+    if (by <= R && (bx <= R || bx >= mapW - R - 1) || by >= mapH - R - 1 && (bx <= R || bx >= mapW - R - 1))
+    {//run to tail
+        buildShortestPath(by, bx, s->getTailY(), s->getTailX(), mapPath);
+    } else//run to head
+    {
+        buildShortestPath(by, bx, s->nodes[0].y, s->nodes[0].x, mapPath);
+    }
 	dumpToFile(mapPath, "dmp.txt");
 	bot->draw(0, mp->curMap);
 
